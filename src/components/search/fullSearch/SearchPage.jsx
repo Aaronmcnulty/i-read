@@ -1,14 +1,24 @@
+import { useState } from "react";
 
 function SearchPage(){
 
+    const [bookTitleValue, setBookTitleValue] = useState("")
     
+    const updateBookTitleValue = () => {
+        setBookTitleValue(event.target.value)
+    }
+
+    const submitSearch = (event) => {
+        event.preventDefault()
+        console.log(bookTitleValue)
+    }
 
     return(
         <>
-            <form>
+            <form onSubmit={submitSearch}>
                 <fieldset>
                     <label htmlFor="book-title">Book Title: </label>
-                    <input type="text" name="book-title" id="book-title" required></input>
+                    <input onChange={updateBookTitleValue} type="text" name="book-title" id="book-title" required></input>
                 </fieldset>
                 <button type="submit" >Search</button>
             </form>

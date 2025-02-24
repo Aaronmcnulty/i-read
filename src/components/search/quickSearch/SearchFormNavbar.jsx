@@ -14,6 +14,7 @@ function SearchFormNavbar(){
     }
 
     return(
+        
         <form onSubmit={searchClick}>
                 <label htmlFor="searchTerm">Quick Search</label>
                 <input onChange={typey} type="text" name="searchTerm" id="searchTerm" required></input>
