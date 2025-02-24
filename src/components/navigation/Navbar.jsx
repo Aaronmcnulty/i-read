@@ -7,6 +7,7 @@ function Navbar(){
             <nav>
                 <Link to="homepage"> Home </Link>
                 <Link to="library"> Library </Link>
+                <Link to="my-library">My Library</Link>
             </nav>
         </div>
     )

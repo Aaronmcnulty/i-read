@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
 import Homepage from "./components/homepage/Homepage";
 import Library from "./components/library/Library";
+import MyLibrary from "./components/myLibrary.jsx/myLibrary";
 
 const router = createBrowserRouter([
   {
@@ -12,7 +13,8 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Homepage />},
       { path: "homepage", element: <Homepage />},
-      { path: "library", element: <Library /> }
+      { path: "library", element: <Library /> },
+      { path: "my-library", element: <MyLibrary /> }
     ],
   },
 ]);

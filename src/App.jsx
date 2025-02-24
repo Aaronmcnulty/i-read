@@ -5,13 +5,12 @@ import Navbar from './components/navigation/Navbar'
 import { Outlet } from 'react-router-dom'
 
 function App() {
-    
 
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-      fetch("https://jsnplaceholder.typicode.com/photos", { mode: "cors" })
+      fetch("https://jsonplaceholder.typicode.com/photos", { mode: "cors" })
       .then((response) => {
         if (response.status >= 400) {
           throw new Error("server error")
