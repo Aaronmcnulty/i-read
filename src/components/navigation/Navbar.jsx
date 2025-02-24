@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import SearchFormNavbar from "../search/SearchFormNavbar";
 
 function Navbar(){
 
@@ -9,6 +10,9 @@ function Navbar(){
                 <Link to="library"> Library </Link>
                 <Link to="my-library">My Library</Link>
             </nav>
+            <div>
+                <SearchFormNavbar /> 
+            </div>
         </div>
     )
 }

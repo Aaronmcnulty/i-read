@@ -5,7 +5,8 @@ import Navbar from './components/navigation/Navbar'
 import { Outlet } from 'react-router-dom'
 
 function App() {
-
+  
+  
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
 
