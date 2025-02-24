@@ -15,11 +15,9 @@ function SearchFormNavbar(){
 
     return(
         <form onSubmit={searchClick}>
-            <fieldset>
-                <label htmlFor="searchTerm">Search</label>
+                <label htmlFor="searchTerm">Quick Search</label>
                 <input onChange={typey} type="text" name="searchTerm" id="searchTerm" required></input>
-            </fieldset>
-            <button  id="search-submit" >Search</button>
+                <button  id="search-submit" >Search</button>
         </form>
     )
 }

@@ -5,6 +5,7 @@ import App from "./App";
 import Homepage from "./components/homepage/Homepage";
 import Library from "./components/library/Library";
 import MyLibrary from "./components/myLibrary.jsx/myLibrary";
+import SearchPage from "./components/search/fullSearch/SearchPage";
 
 const router = createBrowserRouter([
   {
@@ -14,7 +15,8 @@ const router = createBrowserRouter([
       { index: true, element: <Homepage />},
       { path: "homepage", element: <Homepage />},
       { path: "library", element: <Library /> },
-      { path: "my-library", element: <MyLibrary /> }
+      { path: "my-library", element: <MyLibrary /> },
+      { path: "search-page", element: <SearchPage /> }
     ],
   },
 ]);
