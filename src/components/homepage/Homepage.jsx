@@ -26,7 +26,7 @@ function Homepage(){
       if (loading) return <p>Loading...</p>;
       if (error) return <p>A network error was encountered</p>;
       console.log(randomBooks)
-
+    
     return(
         <>
             <h2>Home Page</h2>

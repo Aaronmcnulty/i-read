@@ -18,20 +18,23 @@ function SearchPage(){
     const submitSearch = (event) => {
         event.preventDefault()
         setResultsPage(1)
+        fetchApi()
     }
 
     const nextPage = () => {
         console.log(resultsPage)
         setResultsPage(resultsPage + 1)
-        console.log(resultsPage)
     }
 
     const previousPage = () => {
         setResultsPage(resultsPage - 1)
     }
 
-    useEffect(() => {
-        fetch(`https://openlibrary.org/search.json?q=${searchTerm}&page=${resultsPage}&limit=10`, { mode: "cors" })
+    useEffect(()=>{
+        fetchApi()
+    }, [searchTerm, resultsPage])
+    const fetchApi = () => {
+        fetch(`https://openlibrary.org/search.json?title=${searchTerm}&page=${resultsPage}&limit=10`, { mode: "cors" })
         .then((response) => {
           if (response.status >= 400) {
             throw new Error("server error")
@@ -41,12 +44,13 @@ function SearchPage(){
         .then((response) => setApiSearchResults(response.docs))
         .catch((error) => setError(error))
         .finally(() => setLoading(false))      
-      }, [resultsPage, searchTerm]);
+    
+        if (loading) return <p>Loading...</p>;
+      if (error) return <p>A network error was encountered</p>;
+    }
 
         
-      if (loading) return <p>Loading...</p>;
-      if (error) return <p>A network error was encountered</p>;
-    
+      
     return(
         <>
             <form onSubmit={submitSearch}>
@@ -58,7 +62,7 @@ function SearchPage(){
             </form>
 
             <div>
-                <SearchResultsDisplay BookSearchResults={apiSearchResults} />
+               {apiSearchResults && <SearchResultsDisplay BookSearchResults={apiSearchResults} />}
             </div>
             <p>{resultsPage}</p>
             {resultsPage > 1 ? <button onClick={previousPage}>Previous</button> : null}

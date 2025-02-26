@@ -1,22 +1,20 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { LibraryContext } from "../../App";
+import BooksDisplay from "../bookDisplay/BookDisplay";
 
 function MyLibrary(){
     
-    const [myReadBooks, setReadBooks] = useState([
-        {name: "Batman"},
-        {name: "Batman Two"}
-    ])
+    const context = useContext(LibraryContext)
 
-    console.log(myReadBooks)
+    
+    console.log(context.ownedBooksArray)
+    console.log(context.readBooksArray)
+    console.log(context.wishListBooksArray)
     return(
         <>
             <h2>My Library</h2>
             <div>
-             <ul>
-             {myReadBooks.map((book) => {
-             return <li key={book.name}>{book.name}</li>
-            })}
-             </ul>
+             <BooksDisplay BookApiData={context.ownedBooksArray} />
             </div>          
         </>
     )
