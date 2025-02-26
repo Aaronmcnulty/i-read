@@ -1,5 +1,5 @@
 
-function HomeBooksTemplate( {bookData} ){
+function BookTemplate( {bookData} ){
     let coverImageUrl =null
     if(bookData.cover_i){
        coverImageUrl = `https://covers.openlibrary.org/b/id/${bookData.cover_i}-M.jpg`
@@ -11,11 +11,11 @@ function HomeBooksTemplate( {bookData} ){
     return(
         <>
             <p>{bookData.title}</p>
-            <p>{bookData.author_name[0]}</p>
+            <p>{bookData.author_name}</p>
             <img src={coverImageUrl}></img>
         </>
     )
 
 }
 
-export default HomeBooksTemplate
+export default BookTemplate

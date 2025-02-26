@@ -1,5 +1,5 @@
-import HomeBooksTemplate from "./HomeBooksTemplate"
-function HomeBooksDisplay( { BookApiData } ){
+import HomeBooksTemplate from "./BookTemplate"
+function BooksDisplay( { BookApiData } ){
 
     console.log(BookApiData)
     return(
@@ -17,4 +17,4 @@ function HomeBooksDisplay( { BookApiData } ){
 
 }
 
-export default HomeBooksDisplay
+export default BooksDisplay
