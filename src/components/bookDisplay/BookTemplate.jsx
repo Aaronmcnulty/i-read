@@ -8,11 +8,18 @@ function BookTemplate( {bookData} ){
    // https://covers.openlibrary.org/b/id/14627570-L.jpg
     
     return(
-        <>
-            <p>{bookData.title}</p>
-            <p>{bookData.author_name}</p>
-            <img src={coverImageUrl}></img>
-        </>
+        <div>
+            <div>
+                <p>{bookData.title}</p>
+                <p>{bookData.author_name}</p>
+                <img src={coverImageUrl}></img>
+            </div>
+            
+            <div>
+                <button>+</button>
+                <button>-</button>
+            </div>
+        </div>
     )
 
 }
