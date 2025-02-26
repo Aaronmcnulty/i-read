@@ -8,6 +8,7 @@ function SearchPage(){
     const [searchTerm, setSearchTerm] = useState("")
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [resultsPage, setResultsPage] = useState(1)
 
 
     const updateSearchTerm = (event) => {
@@ -16,11 +17,21 @@ function SearchPage(){
 
     const submitSearch = (event) => {
         event.preventDefault()
-        fetchSearchTerm(searchTerm)
+        setResultsPage(1)
     }
 
-    const fetchSearchTerm = (searchTerm) => {
-        fetch(`https://openlibrary.org/search.json?q=${searchTerm}&limit=10`, { mode: "cors" })
+    const nextPage = () => {
+        console.log(resultsPage)
+        setResultsPage(resultsPage + 1)
+        console.log(resultsPage)
+    }
+
+    const previousPage = () => {
+        setResultsPage(resultsPage - 1)
+    }
+
+    useEffect(() => {
+        fetch(`https://openlibrary.org/search.json?q=${searchTerm}&page=${resultsPage}&limit=10`, { mode: "cors" })
         .then((response) => {
           if (response.status >= 400) {
             throw new Error("server error")
@@ -29,16 +40,13 @@ function SearchPage(){
         })
         .then((response) => setApiSearchResults(response.docs))
         .catch((error) => setError(error))
-        .finally(() => setLoading(false))
-   
-      
+        .finally(() => setLoading(false))      
+      }, [resultsPage, searchTerm]);
+
+        
       if (loading) return <p>Loading...</p>;
       if (error) return <p>A network error was encountered</p>;
-      console.log(apiSearchResults)
-    }
-
- 
-
+    
     return(
         <>
             <form onSubmit={submitSearch}>
@@ -52,6 +60,9 @@ function SearchPage(){
             <div>
                 <SearchResultsDisplay BookSearchResults={apiSearchResults} />
             </div>
+            <p>{resultsPage}</p>
+            {resultsPage > 1 ? <button onClick={previousPage}>Previous</button> : null}
+            {apiSearchResults.length >= 10 ? <button onClick={nextPage}>Next Page</button> : null}
         </>
     )
 }
