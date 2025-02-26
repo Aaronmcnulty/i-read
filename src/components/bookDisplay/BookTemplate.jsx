@@ -11,15 +11,19 @@ function BookTemplate( {bookData} ){
    
     
     const addToOwned = () => {
-        context.ownedBooksArray.push(bookData)
+        if(!context.ownedBooksArray.includes(bookData)){
+            context.ownedBooksArray.push(bookData)
+        }
     }
     const addToRead = () => {
-        context.readBooksArray.push(bookData)
+        if(!context.readBooksArray.includes(bookData)){
+            context.readBooksArray.push(bookData)
+        }
     }
     const addToWishlist = () => {
+        if(!context.wishListBooksArray.includes(bookData))
         context.wishListBooksArray.push(bookData)
     }
-
 
     return(
         <div>
