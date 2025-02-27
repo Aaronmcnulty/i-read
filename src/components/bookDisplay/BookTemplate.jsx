@@ -2,7 +2,7 @@ import { LibraryContext } from "../../App";
 import { useContext, useState } from "react"
 import styles from "../../css-modules/bookTemplate.module.css"
 import AddedToListPopup from "../reusableElements/AddedToListPopup";
-import {capitalise} from "../../modules/bookTextCorrection";
+import {capitalise, shorten} from "../../modules/bookTextCorrection";
 
 function BookTemplate( {bookData} ){
     const context = useContext(LibraryContext)
@@ -45,15 +45,15 @@ function BookTemplate( {bookData} ){
         
     }
 
-    
-
+    const Booktitle = bookData.title
+    const shortTitle = shorten(Booktitle)
  
     return(
         <div class={styles.bookContainer}>
             <div class={styles.bookDetailsContainer}>
                 <img class={styles.bookCoverImage} src={coverImageUrl}></img>
                 <div class={styles.bookTextContainer}>
-                    <h4  class={styles.bookTitleText}>{capitalise(bookData)}</h4>
+                    <h4  class={styles.bookTitleText}>{capitalise(shortTitle)}</h4>
                     <h5  class={styles.bookAuthorText}>{bookData.author_name}</h5>
                     <p   class={styles.bookYearText}>{bookData.first_publish_year}</p>
                 </div>
