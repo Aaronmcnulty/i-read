@@ -1,12 +1,5 @@
-
-function AuthorPage(){
-
-    return(
-        <div>
-            
-        </div>
-    )
-
+function AuthorPage() {
+  return <div></div>;
 }
 
 export default AuthorPage;

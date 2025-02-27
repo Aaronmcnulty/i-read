@@ -1,7 +1,6 @@
 # I Read App
 
-A book library app for users to log their past, present and future reads. 
-
+A book library app for users to log their past, present and future reads.
 
 ## Getting Started
 
@@ -17,7 +16,7 @@ TBC
 
 ## Running the tests
 
-TBC 
+TBC
 
 ### Sample Tests
 
@@ -36,7 +35,6 @@ TBC
 TBC
 
 ## Versioning
-
 
 ## Authors
 

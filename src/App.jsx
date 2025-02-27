@@ -1,33 +1,31 @@
-import { useEffect, useState } from 'react'
-import './App.css'
-import Header from './components/header/Header'
-import Navbar from './components/navigation/Navbar'
-import { Outlet } from 'react-router-dom'
-import { createContext } from 'react'
+import { useEffect, useState } from "react";
+import "./App.css";
+import Header from "./components/header/Header";
+import Navbar from "./components/navigation/Navbar";
+import { Outlet } from "react-router-dom";
+import { createContext } from "react";
 
-export const LibraryContext = createContext()
+export const LibraryContext = createContext();
 function App() {
+  //cover URL example = https://covers.openlibrary.org/b/id/14627570-L.jpg
 
-  
-    //cover URL example = https://covers.openlibrary.org/b/id/14627570-L.jpg
-
-    const ownedBooksArray = []
-    const readBooksArray = []
-    const wishListBooksArray = []
+  const ownedBooksArray = [];
+  const readBooksArray = [];
+  const wishListBooksArray = [];
 
   return (
     <>
-    <LibraryContext.Provider value={{ ownedBooksArray, readBooksArray, wishListBooksArray }}>
-      
+      <LibraryContext.Provider
+        value={{ ownedBooksArray, readBooksArray, wishListBooksArray }}
+      >
         <div className="toptop">
           <Header />
           <Navbar />
-
         </div>
         <Outlet />
       </LibraryContext.Provider>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

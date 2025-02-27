@@ -1,4 +1,4 @@
-import { StrictMode } from "react"
+import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
@@ -12,11 +12,11 @@ const router = createBrowserRouter([
     path: "/",
     element: <App />,
     children: [
-      { index: true, element: <Homepage />},
-      { path: "homepage", element: <Homepage />},
+      { index: true, element: <Homepage /> },
+      { path: "homepage", element: <Homepage /> },
       { path: "library", element: <Library /> },
       { path: "my-library", element: <MyLibrary /> },
-      { path: "search-page", element: <SearchPage /> }
+      { path: "search-page", element: <SearchPage /> },
     ],
   },
 ]);

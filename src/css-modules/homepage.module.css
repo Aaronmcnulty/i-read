@@ -1,7 +1,5 @@
-
-
-.bookDisplayHome{
-    display: flex;
-    flex-direction: column;
-    margin-top:1em;
+.bookDisplayHome {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1em;
 }

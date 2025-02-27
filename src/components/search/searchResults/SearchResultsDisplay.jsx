@@ -1,12 +1,7 @@
-import BooksDisplay from "../../bookDisplay/BookDisplay"
+import BooksDisplay from "../../bookDisplay/BookDisplay";
 
-function SearchResultsDisplay( { BookSearchResults } ){
-
- 
-
-    return(
-        <BooksDisplay BookApiData={BookSearchResults}/>
-    )
+function SearchResultsDisplay({ BookSearchResults }) {
+  return <BooksDisplay BookApiData={BookSearchResults} />;
 }
 
-export default SearchResultsDisplay
+export default SearchResultsDisplay;
