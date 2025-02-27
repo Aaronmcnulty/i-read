@@ -9,11 +9,13 @@ function BookTemplate( {bookData} ){
     const [isVisible, setIsVisible] = useState(false)
     const [confirmationText, setConfirmationText] = useState("")
 
+    //API is patchy on what fields exist or not. Catches error if cover_i field is missing in bookData
     let coverImageUrl = null
     if(bookData.cover_i){
        coverImageUrl = `https://covers.openlibrary.org/b/id/${bookData.cover_i}-M.jpg`
     }
     
+    // Toggles display state to true for 3 seconds when called, returns to false on timeout.
     const toggleDisplay = () => {
         setIsVisible(true)
         setTimeout(() => {
@@ -21,6 +23,8 @@ function BookTemplate( {bookData} ){
         }, 3000);
     }
     
+    //When add to list button is clicked, function adds bookData to corresponding array.
+    //Will be altered to add to database in future, should be condensed into one function for all three.
     const addToOwned = () => {
         if(!context.ownedBooksArray.includes(bookData)){
             context.ownedBooksArray.push(bookData)
@@ -44,7 +48,7 @@ function BookTemplate( {bookData} ){
         }
         
     }
-
+    
     const Booktitle = bookData.title
     const shortTitle = shorten(Booktitle)
  

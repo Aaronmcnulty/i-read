@@ -8,8 +8,7 @@ function Homepage(){
   
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
-
-
+    
     useEffect(() => {
         fetch("https://openlibrary.org/search.json?q=publish_year:[1995 TO 2005]&sort=random&limit=10", { mode: "cors" })
         .then((response) => {

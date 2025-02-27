@@ -3,7 +3,8 @@ import { LibraryContext } from "../../App";
 import BooksDisplay from "../bookDisplay/BookDisplay";
 
 function MyLibrary(){
-    
+
+    const [option, setOption] = useState(0)
     const context = useContext(LibraryContext)
     
     const lists = [
@@ -12,8 +13,7 @@ function MyLibrary(){
         context.wishListBooksArray
     ]
     
-    const [option, setOption] = useState(0)
-
+    // BooksDisplay is passed a different array depending on which option is selected.
     const  changeOption = (event) => {
         setOption(event.target.value)
     }

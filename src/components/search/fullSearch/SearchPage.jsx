@@ -10,26 +10,30 @@ function SearchPage(){
     const [loading, setLoading] = useState(true);
     const [resultsPage, setResultsPage] = useState(1)
 
-
+    //Updates search term in state to input value on change.
     const updateSearchTerm = (event) => {
         setSearchTerm(event.target.value)
     }
 
+    //Fetches first page of results from search Api. 
     const submitSearch = (event) => {
         event.preventDefault()
         setResultsPage(1)
         fetchApi()
     }
 
+    //Fetches next page of results and stores in state on button click.
     const nextPage = () => {
         console.log(resultsPage)
         setResultsPage(resultsPage + 1)
     }
-
+    
+    //Fetches previous page of results and stores in state on button click.
     const previousPage = () => {
         setResultsPage(resultsPage - 1)
     }
 
+    //Fetch is called when searchTerm updates or resultsPage changes in state.
     useEffect(()=>{
         fetchApi()
     }, [searchTerm, resultsPage])
