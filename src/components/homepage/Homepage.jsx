@@ -28,7 +28,7 @@ function Homepage() {
   console.log(randomBooks);
 
   return (
-    <div class={styles.bookDisplayHome}>
+    <div className={styles.bookDisplayHome}>
       {randomBooks && <HomeBooksDisplay BookApiData={randomBooks} />}
     </div>
   );

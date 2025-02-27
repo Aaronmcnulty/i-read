@@ -10,14 +10,16 @@ function capitalise(title) {
   let t = title
     .toLowerCase()
     .split(" ")
-    .map((word) => {
+    .map((word) => { 
       let i = 0;
       if (!littleWords.includes(word) || i == 0) {
+        i++;
         return word.slice(0, 1).toUpperCase() + word.slice(1);
       } else {
+        i++;
         return word;
       }
-      i++;
+      
     });
   return t.join(" ");
 }

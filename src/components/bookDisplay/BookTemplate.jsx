@@ -51,17 +51,17 @@ function BookTemplate({ bookData }) {
   const shortTitle = shorten(Booktitle);
 
   return (
-    <div class={styles.bookContainer}>
-      <div class={styles.bookDetailsContainer}>
-        <img class={styles.bookCoverImage} src={coverImageUrl}></img>
-        <div class={styles.bookTextContainer}>
-          <h4 class={styles.bookTitleText}>{capitalise(shortTitle)}</h4>
-          <h5 class={styles.bookAuthorText}>{bookData.author_name}</h5>
-          <p class={styles.bookYearText}>{bookData.first_publish_year}</p>
+    <div className={styles.bookContainer}>
+      <div className={styles.bookDetailsContainer}>
+        <img className={styles.bookCoverImage} src={coverImageUrl}></img>
+        <div className={styles.bookTextContainer}>
+          <h4 className={styles.bookTitleText}>{capitalise(shortTitle)}</h4>
+          <h5 className={styles.bookAuthorText}>{bookData.author_name}</h5>
+          <p className={styles.bookYearText}>{bookData.first_publish_year}</p>
         </div>
       </div>
       {isVisible && <AddedToListPopup popupText={confirmationText} />}
-      <div class={styles.bookButtonsContainer}>
+      <div className={styles.bookButtonsContainer}>
         <button onClick={addToOwned}>I own this</button>
         <button onClick={addToWishlist}>I want this</button>
         <button onClick={addToRead}>I read this</button>

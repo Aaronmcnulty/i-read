@@ -3,7 +3,7 @@ import styles from "../../css-modules/navbar.module.css";
 function Navbar() {
   return (
     <div>
-      <nav class={styles.navLinksContainer}>
+      <nav className={styles.navLinksContainer}>
         <Link className={styles.navLink} to="homepage">
           {" "}
           Home{" "}

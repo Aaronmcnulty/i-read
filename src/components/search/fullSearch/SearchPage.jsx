@@ -35,6 +35,8 @@ function SearchPage() {
   useEffect(() => {
     fetchApi();
   }, [searchTerm, resultsPage]);
+
+  
   const fetchApi = () => {
     fetch(
       `https://openlibrary.org/search.json?title=${searchTerm}&page=${resultsPage}&limit=10`,
