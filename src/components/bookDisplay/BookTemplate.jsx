@@ -1,5 +1,6 @@
 import { LibraryContext } from "../../App";
 import { useContext } from "react"
+import styles from "../../css-modules/bookTemplate.module.css"
 
 function BookTemplate( {bookData} ){
     const context = useContext(LibraryContext)
@@ -26,15 +27,17 @@ function BookTemplate( {bookData} ){
     }
 
     return(
-        <div>
-            <div>
-                <img src={coverImageUrl}></img>
-                <h3>{bookData.title}</h3>
-                <h4>{bookData.author_name}</h4>
-                <p>{bookData.first_publish_year}</p>
+        <div class={styles.bookContainer}>
+            <div class={styles.bookDetailsContainer}>
+                <img class={styles.bookCoverImage} src={coverImageUrl}></img>
+                <div class={styles.bookTextContainer}>
+                    <h4  class={styles.bookTitleText}>{bookData.title}</h4>
+                    <h5  class={styles.bookAuthorText}>{bookData.author_name}</h5>
+                    <p   class={styles.bookYearText}>{bookData.first_publish_year}</p>
+                </div>
             </div>
             
-            <div>
+            <div class={styles.bookButtonsContainer}>
                 <button onClick={addToOwned}>I own this</button>
                 <button onClick={addToWishlist}>I want this</button>
                 <button onClick={addToRead}>I read this</button>

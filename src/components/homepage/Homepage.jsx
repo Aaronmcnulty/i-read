@@ -1,6 +1,6 @@
 import HomeBooksDisplay from "../bookDisplay/BookDisplay";
 import { useEffect,useState } from "react";
-
+import styles from "../../css-modules/homepage.module.css"
 function Homepage(){
 
 
@@ -28,10 +28,9 @@ function Homepage(){
       console.log(randomBooks)
     
     return(
-        <>
-            <h2>Home Page</h2>
+        <div class={styles.bookDisplayHome}>
             {randomBooks && <HomeBooksDisplay BookApiData={randomBooks} />}
-        </>
+        </div>
     )
 }
 

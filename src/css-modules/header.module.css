@@ -1,0 +1,11 @@
+
+.headerContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:2em;
+    color: whitesmoke;
+    font-family: "Be Vietnam Pro", serif;
+    background-color: black;
+}
+

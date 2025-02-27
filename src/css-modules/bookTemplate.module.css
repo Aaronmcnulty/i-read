@@ -1,0 +1,63 @@
+
+.bookContainer{
+    font-family: "Be Vietnam Pro", serif;
+    color:rgb(78, 78, 78);
+    display: grid;
+    grid-template-rows: 3fr ;
+    margin-bottom: 1em;
+    background-color: rgb(226, 230, 235);
+    box-shadow: 1px 1px 1px 1px;
+}
+
+.bookButtonsContainer{
+    display: none;
+    justify-content: space-evenly;
+    grid-row: 2;
+    padding: 1em;
+}
+
+.bookDetailsContainer{
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    grid-column: 1;
+}
+
+.bookTextContainer{
+    display: grid;
+    grid-column: 2;
+    padding: 1em;
+}
+
+.bookCoverImage{
+    grid-column: 1;
+    padding:1em;
+    height:200px;
+    min-width: auto;
+    animation: grow 1s;
+}
+
+.bookTitleText{
+    
+}
+
+.bookAuthorText{
+   
+}
+
+.bookYearText{
+    
+}
+
+@keyframes grow {
+    0%{
+        opacity: 0;
+        transform: scale(0%);
+    }
+    50%{
+
+    }
+    100%{
+        opacity: 1;
+        transform: scale(100%);
+    }
+}
