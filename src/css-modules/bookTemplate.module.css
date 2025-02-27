@@ -10,7 +10,7 @@
 }
 
 .bookButtonsContainer{
-    display: none;
+    display: flex;
     justify-content: space-evenly;
     grid-row: 2;
     padding: 1em;

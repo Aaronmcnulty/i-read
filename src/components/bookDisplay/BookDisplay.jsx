@@ -6,6 +6,8 @@ function BooksDisplay( { BookApiData } ){
 
     return(
         <div>
+
+            
             { BookApiData && BookApiData.map((book) => {
              return  <HomeBooksTemplate bookData={book} key={uuidv4()}/>
             })}
