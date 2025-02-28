@@ -18,11 +18,9 @@ function App() {
     <>
     <LibraryContext.Provider value={{ ownedBooksArray, readBooksArray, wishListBooksArray }}>
       
-        <div className="toptop">
+  
           <Header />
           <Navbar />
-
-        </div>
         <Outlet />
       </LibraryContext.Provider>
     </>

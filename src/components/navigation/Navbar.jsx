@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import styles from "../../css-modules/navbar.module.css";
 function Navbar() {
   return (
-    <div>
+    
       <nav className={styles.navLinksContainer}>
         <Link className={styles.navLink} to="homepage">
           {" "}
@@ -19,7 +19,7 @@ function Navbar() {
           Full Search
         </Link>
       </nav>
-    </div>
+   
   );
 }
 
