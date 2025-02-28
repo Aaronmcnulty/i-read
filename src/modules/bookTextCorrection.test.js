@@ -1,5 +1,39 @@
-import { describe, it, expect } from "vitest";
-import { shorten } from "./bookTextCorrection";
+import { describe, it, expect } from 'vitest';
+import { capitalise, shorten } from './bookTextCorrection';
+
+describe('Return string in title case except for minor words', () => {
+
+    it('Should return the string with all words in "title case"', () => {
+        const bookTitle = "Big Book Title"
+        expect(capitalise(bookTitle)).toStrictEqual("Big Book Title")
+    })
+
+    it('Should return a string with lower case words in "title case"', () => {
+        const bookTitle = "big book title"
+        expect(capitalise(bookTitle)).toStrictEqual("Big Book Title")
+    })
+
+    it('Should NOT return the string with all words in lowercase', () => {
+        const bookTitle = "Big Book Title"
+        expect(capitalise(bookTitle)).not.toStrictEqual("big book title")
+    })
+
+    it('Should return words found in the littleWords array in lowercase', () => {
+        const bookTitle = "Title Of A In The"
+        expect(capitalise(bookTitle)).toStrictEqual("Title of a in the")
+    })
+
+    it('Should return words found in the littleWords array in lowercase unless its the first word', () => {
+        const bookTitle = "The Of A In The"
+        expect(capitalise(bookTitle)).toStrictEqual("The of a in the")
+    })
+
+    it('Should change all caps words to title case and minor words to lowercase', () => {
+        const bookTitle = "THE BIG BOOK OF THINGS IN A BAG"
+        expect(capitalise(bookTitle)).toStrictEqual("The Big Book of Things in a Bag")
+    })
+}) 
+
 
 describe('Shorten strings above character limit argument and append with elipses', () => {
     
@@ -28,4 +62,6 @@ describe('Shorten strings above character limit argument and append with elipses
         expect(shorten(shortString, 5)).toStrictEqual("Spot ...")
     })
 })
+
+
 

@@ -7,21 +7,20 @@ All other words returned with first letter uppecase.
 First letter of the title is uppercase regardless.
 */
 function capitalise(title) {
-  let t = title
+  let titleWords = title
     .toLowerCase()
     .split(" ")
-    .map((word) => { 
-      let i = 0;
-      if (!littleWords.includes(word) || i == 0) {
-        i++;
-        return word.slice(0, 1).toUpperCase() + word.slice(1);
+
+    let correctedTitleArray = []
+    
+    for(let i=0; i < titleWords.length; i++){
+      if(!littleWords.includes(titleWords[i]) || i === 0){
+        correctedTitleArray.push(titleWords[i].slice(0, 1).toUpperCase() + titleWords[i].slice(1))
       } else {
-        i++;
-        return word;
+        correctedTitleArray.push(titleWords[i])
       }
-      
-    });
-  return t.join(" ");
+    }
+  return correctedTitleArray.join(" ")
 }
 
 //Returns the first 40 characters of the title and appends with elipses (...)
