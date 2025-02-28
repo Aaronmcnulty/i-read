@@ -5,6 +5,7 @@
   justify-content: space-between;
   background-color: rgb(208, 219, 219);
   padding: 1em;
+  z-index: 8;
 }
 
 .navLink {

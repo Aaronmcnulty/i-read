@@ -11,9 +11,16 @@
 
 .bookButtonsContainer {
   display: flex;
-  justify-content: space-evenly;
-  grid-row: 2;
+  flex-direction: column;
+  justify-self: center;
+  align-self: center;
+  justify-content: space-around;
   padding: 1em;
+  z-index: 2;
+  position: absolute;
+  background-color: rgb(241, 239, 234);
+  border-radius: 15px;
+  animation: slideIn 1s;
 }
 
 .bookDetailsContainer {
@@ -34,7 +41,7 @@
 }
 
 .bookCoverImage {
-  height: 400px;
+  height: 370px;
   justify-self: center;
   grid-row: 1;
   padding: 1em;
@@ -52,6 +59,16 @@
 .bookYearText {
 }
 
+.toggleButton{
+  grid-row: 1;
+  justify-self: end;
+  align-self:self-start; 
+  width: fit-content;
+  z-index: 2;
+  position:absolute;
+ 
+}
+
 @keyframes grow {
   0% {
     opacity: 0;
@@ -62,5 +79,18 @@
   100% {
     opacity: 1;
     transform: scale(100%);
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  50% {
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
   }
 }
