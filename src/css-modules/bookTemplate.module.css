@@ -3,9 +3,10 @@
   color: rgb(78, 78, 78);
   display: grid;
   grid-template-rows: 3fr;
-  margin-bottom: 1em;
-  background-color: rgb(226, 230, 235);
-  box-shadow: 1px 1px 1px 1px;
+  margin-bottom: 5em;
+  background-color: rgb(255, 255, 255);
+  border: solid;
+  border-width: 1px 0px 1px 0px; 
 }
 
 .bookButtonsContainer {
@@ -17,23 +18,30 @@
 
 .bookDetailsContainer {
   display: grid;
-  grid-template-columns: 2fr 3fr;
+  grid-template-rows:  4fr 1fr;
+  align-items: center;
   grid-column: 1;
 }
 
 .bookTextContainer {
-  display: grid;
-  grid-column: 2;
-  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  grid-row: 2;
+  width: 100%;
 }
 
 .bookCoverImage {
-  grid-column: 1;
+  height: 400px;
+  justify-self: center;
+  grid-row: 1;
   padding: 1em;
-  height: 200px;
   min-width: auto;
   animation: grow 1s;
 }
+
 
 .bookTitleText {
 }

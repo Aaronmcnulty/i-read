@@ -7,7 +7,5 @@ describe('App', () => {
     render(<Header title="I read" />);
 
     screen.debug();
-
-    // check if App components renders headline
   });
 });

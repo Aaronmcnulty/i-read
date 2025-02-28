@@ -15,7 +15,7 @@ body {
   line-height: 1.5;
   /* 4. Improve text rendering */
   -webkit-font-smoothing: antialiased;
-  background-color: rgb(11, 11, 39);
+  background-color: rgb(255, 255, 255);
 }
 
 /* 5. Improve media defaults */
@@ -44,7 +44,6 @@ h3,
 h4,
 h5,
 h6 {
-  overflow-wrap: break-word;
 }
 
 /* 8. Improve line wrapping */
@@ -68,11 +67,7 @@ h6 {
   isolation: isolate;
 }
 
-.toptop {
-  background-color: black;
-  position: sticky;
-  top: 0%;
-}
+
 
 @keyframes logo-spin {
   from {

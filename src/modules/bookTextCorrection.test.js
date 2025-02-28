@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { capitalise, shorten } from './bookTextCorrection';
 
-describe('Return string in title case except for minor words', () => {
+describe('capitalise function', () => {
 
     it('Should return the string with all words in "title case"', () => {
         const bookTitle = "Big Book Title"
@@ -35,7 +35,7 @@ describe('Return string in title case except for minor words', () => {
 }) 
 
 
-describe('Shorten strings above character limit argument and append with elipses', () => {
+describe('shorten function', () => {
     
     it('Should return shortened strings above character limit to character limit with elipses', () => {
         const longString = "The quick brown fox jumps over the lazy dog"
