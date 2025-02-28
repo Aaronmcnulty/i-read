@@ -25,8 +25,8 @@ function capitalise(title) {
 }
 
 //Returns the first 40 characters of the title and appends with elipses (...)
-function shorten(title) {
-  return title.split("").length >= 41 ? title.slice(0, 40) + "..." : title;
+function shorten(title, characterLimit) {
+  return title.split("").length > characterLimit ? title.slice(0, characterLimit) + "..." : title;
 }
 
 export { capitalise, shorten };

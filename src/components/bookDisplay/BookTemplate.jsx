@@ -48,7 +48,7 @@ function BookTemplate({ bookData }) {
   };
 
   const Booktitle = bookData.title;
-  const shortTitle = shorten(Booktitle);
+  const shortTitle = shorten(Booktitle, 40);
 
   return (
     <div className={styles.bookContainer}>
