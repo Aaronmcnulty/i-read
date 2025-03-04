@@ -13,7 +13,7 @@ function BookTemplate({ bookData }) {
   //API is patchy on what fields exist or not. Catches error if cover_i field is missing in bookData
   let coverImageUrl = null;
   if (bookData.cover_i) {
-    coverImageUrl = `https://covers.openlibrary.org/b/id/${bookData.cover_i}-M.jpg`;
+    coverImageUrl = `https://covers.openlibrary.org/b/id/${bookData.cover_i}-L.jpg`;
   }
 
   // Toggles display state to true for 3 seconds when called, returns to false on timeout.
