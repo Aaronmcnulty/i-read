@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
 import { LibraryContext } from "../../App";
-import BooksDisplay from "../bookDisplay/BookDisplay";
+import BookListDisplay from "../bookDisplay/BookDisplay";
 
 function MyLibrary() {
   const [option, setOption] = useState(0);
@@ -28,7 +28,7 @@ function MyLibrary() {
         </select>
       </div>
       <div>
-        <BooksDisplay BookApiData={lists[option]} />
+        <BookListDisplay BookApiData={lists[option]} />
       </div>
     </>
   );

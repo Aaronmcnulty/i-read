@@ -1,7 +1,7 @@
 import HomeBooksTemplate from "./BookTemplate";
 import { v4 as uuidv4 } from "uuid";
 
-function BooksDisplay({ BookApiData }) {
+function BookListDisplay({ BookApiData }) {
   return (
     <div>
       {BookApiData &&
@@ -12,4 +12,4 @@ function BooksDisplay({ BookApiData }) {
   );
 }
 
-export default BooksDisplay;
+export default BookListDisplay;
