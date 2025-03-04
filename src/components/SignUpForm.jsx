@@ -1,5 +1,5 @@
 
-function LogInForm(){
+function SignUpForm(){
 
     return(
         <>
@@ -11,11 +11,16 @@ function LogInForm(){
                     <input type="text" name="password" id="password" required></input>
                 </fieldset>
                 <fieldset>
+                    <label htmlFor="email">Email: </label>
+                    <input type="text" name="email" id="email" required></input>
+                    </fieldset>
+                <fieldset>
                     <button type="button">Submit</button>
                 </fieldset>
             </form>
         </>
     )
+
 }
 
-export default LogInForm;
+export default SignUpForm;
