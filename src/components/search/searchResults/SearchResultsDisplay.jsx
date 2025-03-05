@@ -1,4 +1,4 @@
-import BookListDisplay from "../../bookDisplay/BookDisplay";
+import BookListDisplay from "../../bookDisplay/BookListDisplay";
 
 function SearchResultsDisplay({ BookSearchResults }) {
   return <BookListDisplay BookApiData={BookSearchResults} />;

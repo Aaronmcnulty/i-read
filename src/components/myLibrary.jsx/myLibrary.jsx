@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
 import { LibraryContext } from "../../App";
-import BookListDisplay from "../bookDisplay/BookDisplay";
+import BookListDisplay from "../bookDisplay/BookListDisplay";
 
 function MyLibrary() {
   const [option, setOption] = useState(0);

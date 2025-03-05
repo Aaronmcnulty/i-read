@@ -1,4 +1,4 @@
-import HomeBooksDisplay from "../bookDisplay/BookDisplay";
+import HomeBooksDisplay from "../bookDisplay/BookListDisplay";
 import { useEffect, useState } from "react";
 import styles from "../../css-modules/homepage.module.css";
 function Homepage() {
