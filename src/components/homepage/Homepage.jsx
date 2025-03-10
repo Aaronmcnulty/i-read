@@ -2,6 +2,7 @@ import HomeBooksDisplay from "../bookDisplay/BookListDisplay";
 import { useEffect, useState } from "react";
 import styles from "../../css-modules/homepage.module.css";
 import LogInForm from "../logInPage/LogInForm";
+import SignUpForm from "../SignUpForm";
 function Homepage() {
   const [randomBooks, setRandomBooks] = useState([]);
 
@@ -33,6 +34,7 @@ function Homepage() {
   return (
       <>
         <LogInForm />
+        <SignUpForm />
       </>
   );
 }

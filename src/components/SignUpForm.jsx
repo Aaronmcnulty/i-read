@@ -1,21 +1,45 @@
-
+import { useState } from "react";
+import axios from "axios";
 function SignUpForm(){
+
+    const [username, setSignupUsername] = useState("")
+    const [password, setSignupPassword] = useState("")
+    const [name, setName] = useState("")
+
+    const submitLogIn = (event) => {
+        console.log(username, password)
+        event.preventDefault()
+        axios.post('https://happy-upliftment-production.up.railway.app/users/user-signup',
+            {username, password},
+            {method: "cors"},
+            { withCredentials: true })
+            .then((res) => {
+              console.log(res.data);
+            })
+            .catch((error) => {
+              console.error(error);
+            });
+    }
+
+    const usernameInputChange = (event) => {
+        setSignupUsername(event.target.value)
+    }
+    const passwordInputChange = (event) => {
+        setSignupPassword(event.target.value)
+    }
+ 
 
     return(
         <>
-            <form method="POST">
+            <form onSubmit={submitLogIn} action="" method="POST">
                 <fieldset>
-                    <label htmlFor="username">Username: </label>
-                    <input type="text" name="username" id="username" required></input>
-                    <label htmlFor="password">Password: </label>
-                    <input type="text" name="password" id="password" required></input>
+                    <label htmlFor="signup-username">Username: </label>
+                    <input onChange={usernameInputChange} type="text" name="signup-username" id="signup-username" required></input>
+                    <label htmlFor="signup-password">Password: </label>
+                    <input onChange={passwordInputChange} type="signup-password" name="signup-password" id="signup-password" required></input>
                 </fieldset>
                 <fieldset>
-                    <label htmlFor="email">Email: </label>
-                    <input type="text" name="email" id="email" required></input>
-                    </fieldset>
-                <fieldset>
-                    <button type="button">Submit</button>
+                    <button type="submit">Submit</button>
                 </fieldset>
             </form>
         </>
