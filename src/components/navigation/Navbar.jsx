@@ -8,10 +8,6 @@ function Navbar() {
           {" "}
           Home{" "}
         </Link>
-        <Link className={styles.navLink} to="library">
-          {" "}
-          Library{" "}
-        </Link>
         <Link className={styles.navLink} to="my-library">
           My Library
         </Link>

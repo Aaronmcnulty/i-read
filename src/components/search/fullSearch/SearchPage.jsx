@@ -33,7 +33,7 @@ function SearchPage() {
 
   //Fetch is called when searchTerm updates or resultsPage changes in state.
   useEffect(() => {
-    fetchApi();
+    if(searchTerm.length > 0){fetchApi()};
   }, [searchTerm, resultsPage]);
 
   

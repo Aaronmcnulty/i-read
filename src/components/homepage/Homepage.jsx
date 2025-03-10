@@ -1,6 +1,7 @@
 import HomeBooksDisplay from "../bookDisplay/BookListDisplay";
 import { useEffect, useState } from "react";
 import styles from "../../css-modules/homepage.module.css";
+import LogInForm from "../logInPage/LogInForm";
 function Homepage() {
   const [randomBooks, setRandomBooks] = useState([]);
 
@@ -25,12 +26,14 @@ function Homepage() {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>A network error was encountered</p>;
-  console.log(randomBooks);
+//   <div className={styles.bookDisplayHome}>
+//   {randomBooks && <HomeBooksDisplay BookApiData={randomBooks} />}
+// </div>
 
   return (
-    <div className={styles.bookDisplayHome}>
-      {randomBooks && <HomeBooksDisplay BookApiData={randomBooks} />}
-    </div>
+      <>
+        <LogInForm />
+      </>
   );
 }
 
