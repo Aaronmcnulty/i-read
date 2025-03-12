@@ -5,7 +5,8 @@ import App from "./App";
 import Homepage from "./components/homepage/Homepage";
 import MyLibrary from "./components/myLibrary.jsx/myLibrary";
 import SearchPage from "./components/search/fullSearch/SearchPage";
-
+import { AuthProvider } from "./context/AuthProvider";
+ 
 const router = createBrowserRouter([
   {
     path: "/",
@@ -21,6 +22,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </StrictMode>,
 );

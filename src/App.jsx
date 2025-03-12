@@ -20,8 +20,6 @@ function App() {
   return (
     <>
     <LibraryContext.Provider value={{ ownedBooksArray, readBooksArray, wishListBooksArray }}>
-      
-  
           <Header />
           <Navbar />
         <Outlet />
