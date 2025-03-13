@@ -3,8 +3,6 @@ import axios from "axios";
 function SignUpForm() {
   const [username, setSignupUsername] = useState("");
   const [password, setSignupPassword] = useState("");
-  const [name, setName] = useState("");
-
   const submitLogIn = (event) => {
     console.log(username, password);
     event.preventDefault();

@@ -1,5 +1,5 @@
 import { LibraryContext } from "../../App";
-import { use, useContext, useState } from "react";
+import { useContext, useState } from "react";
 import styles from "../../css-modules/bookTemplate.module.css";
 import AddedToListPopup from "../reusableElements/AddedToListPopup";
 import { capitalise, shorten } from "../../modules/bookTextCorrection";
