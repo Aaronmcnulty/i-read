@@ -43,6 +43,7 @@ function BookTemplate({ bookData }) {
       toggleDisplay();
     }
   };
+  
   const addToRead = () => {
     if (!context.readBooksArray.includes(bookData)) {
       context.readBooksArray.push(bookData);

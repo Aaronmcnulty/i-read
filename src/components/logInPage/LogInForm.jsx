@@ -41,6 +41,7 @@ function LogInForm(){
 
     console.log(localStorage.getItem("storedToken"))
     console.log(localStorage.getItem("user"))
+
     const logOut = () => {
       axios.get('https://happy-upliftment-production.up.railway.app/log-out',
       {method: "cors"},
@@ -49,6 +50,7 @@ function LogInForm(){
         localStorage.removeItem("storedToken")
         localStorage.removeItem("user")
         console.log(res.data);
+        setSuccess(false);
       })
       .catch((error) => {
         console.error(error);
@@ -56,17 +58,16 @@ function LogInForm(){
     }
 
     return(
-        
         <>
-        
         {success ? (
         <section>
           <h1>You are logged in!</h1>
           <br />
-          <button onClick={logOut}>log Out </button>
+          
         </section>
       ) : (
-        
+          <section>
+            <button onClick={logOut}>log Out </button>
             <form  onSubmit={submitLogIn}>
                 <fieldset>
                     <label htmlFor="username">Username: </label>
@@ -78,6 +79,8 @@ function LogInForm(){
                     <button type="submit">Submit</button>
                 </fieldset>
             </form>
+          </section>
+           
             )}
         </>
     )
