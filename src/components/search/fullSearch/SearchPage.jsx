@@ -33,10 +33,11 @@ function SearchPage() {
 
   //Fetch is called when searchTerm updates or resultsPage changes in state.
   useEffect(() => {
-    if(searchTerm.length > 0){fetchApi()};
+    if (searchTerm.length > 0) {
+      fetchApi();
+    }
   }, [searchTerm, resultsPage]);
 
-  
   const fetchApi = () => {
     fetch(
       `https://openlibrary.org/search.json?title=${searchTerm}&page=${resultsPage}&limit=10`,

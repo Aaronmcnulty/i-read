@@ -6,7 +6,7 @@
   margin-bottom: 5em;
   background-color: rgb(255, 255, 255);
   border: solid;
-  border-width: 1px 0px 1px 0px; 
+  border-width: 1px 0px 1px 0px;
 }
 
 .bookButtonsContainer {
@@ -25,7 +25,7 @@
 
 .bookDetailsContainer {
   display: grid;
-  grid-template-rows:  4fr 1fr;
+  grid-template-rows: 4fr 1fr;
   align-items: center;
   grid-column: 1;
 }
@@ -49,7 +49,6 @@
   animation: grow 1s;
 }
 
-
 .bookTitleText {
 }
 
@@ -59,14 +58,13 @@
 .bookYearText {
 }
 
-.toggleButton{
+.toggleButton {
   grid-row: 1;
   justify-self: end;
-  align-self:self-start; 
+  align-self: self-start;
   width: fit-content;
   z-index: 2;
-  position:absolute;
- 
+  position: absolute;
 }
 
 @keyframes grow {

@@ -27,14 +27,14 @@ function Homepage() {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>A network error was encountered</p>;
-//   <div className={styles.bookDisplayHome}>
-//   {randomBooks && <HomeBooksDisplay BookApiData={randomBooks} />}
-// </div>
+  //   <div className={styles.bookDisplayHome}>
+  //   {randomBooks && <HomeBooksDisplay BookApiData={randomBooks} />}
+  // </div>
 
   return (
-      <>
-        <LogInForm />
-      </>
+    <>
+      <LogInForm />
+    </>
   );
 }
 

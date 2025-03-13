@@ -1,12 +1,5 @@
-
-function LogInPage(){
-
-    return(
-        <>
-            
-        </>
-    )
-
+function LogInPage() {
+  return <></>;
 }
 
 export default LogInPage;

@@ -4,8 +4,8 @@ import BookListDisplay from "../bookDisplay/BookListDisplay";
 import axios from "axios";
 function MyLibrary() {
   const [option, setOption] = useState(0);
-  const [userList, setUserList] = useState(null)
-  const [userLists, setUserLists] = useState(null)
+  const [userList, setUserList] = useState(null);
+  const [userLists, setUserLists] = useState(null);
   const context = useContext(LibraryContext);
   const lists = [
     context.ownedBooksArray,
@@ -17,47 +17,54 @@ function MyLibrary() {
   const changeOption = (event) => {
     setOption(event.target.value);
   };
-  const b = (localStorage.getItem("storedToken").replaceAll('"', ''))
-  axios.defaults.headers.common['Authorization'] = `bearer ${b}`
-  
+  const b = localStorage.getItem("storedToken").replaceAll('"', "");
+  axios.defaults.headers.common["Authorization"] = `bearer ${b}`;
+
   useEffect(() => {
-    axios.post('https://happy-upliftment-production.up.railway.app/book-list/get-user-lists',
-    {"body": "none"},
-    {method: "cors"},
-    { withCredentials: true})
-    .then((res) => setUserLists(res.data) )
-  }, [])
+    axios
+      .post(
+        "https://happy-upliftment-production.up.railway.app/book-list/get-user-lists",
+        { body: "none" },
+        { method: "cors" },
+        { withCredentials: true },
+      )
+      .then((res) => setUserLists(res.data));
+  }, []);
 
   const handleGetList = () => {
-    console.log(b)
-    axios.post('https://happy-upliftment-production.up.railway.app/book-list/get-list',
-      
-      {name: option},
-      {method: "cors"},
-      { withCredentials: true })
-      .then((res) => setUserList(res.data))
-    }
+    console.log(b);
+    axios
+      .post(
+        "https://happy-upliftment-production.up.railway.app/book-list/get-list",
+        { name: option },
+        { method: "cors" },
+        { withCredentials: true },
+      )
+      .then((res) => setUserList(res.data));
+  };
 
-    useEffect(() => {
-      console.log(userList, userLists)
-    }, [userList, userLists])
- 
+  useEffect(() => {
+    console.log(userList, userLists);
+  }, [userList, userLists]);
+
   return (
     <>
       <h2>My Library</h2>
       <div>
         <select onChange={changeOption}>
-          {userLists && userLists.map(entry => {
-            let correctedName = entry.name.replace("_", ' ')
-            return <option value={entry.name}>{correctedName}</option>
-          })}
+          {userLists &&
+            userLists.map((entry) => {
+              let correctedName = entry.name.replace("_", " ");
+              return <option value={entry.name}>{correctedName}</option>;
+            })}
         </select>
       </div>
       <button onClick={handleGetList}>click</button>
       <div>
         <ul>
-            {userList && userList.books.map(item => {
-              return <li>{item.title}</li>
+          {userList &&
+            userList.books.map((item) => {
+              return <li>{item.title}</li>;
             })}
         </ul>
         <BookListDisplay BookApiData={lists[option]} />

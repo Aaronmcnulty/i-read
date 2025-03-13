@@ -6,7 +6,7 @@ import Homepage from "./components/homepage/Homepage";
 import MyLibrary from "./components/myLibrary.jsx/myLibrary";
 import SearchPage from "./components/search/fullSearch/SearchPage";
 import { AuthProvider } from "./context/AuthProvider";
- 
+
 const router = createBrowserRouter([
   {
     path: "/",

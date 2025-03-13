@@ -1,6 +1,6 @@
 .navLinksContainer {
-  position:sticky;
-  top:0px;
+  position: sticky;
+  top: 0px;
   display: flex;
   justify-content: space-between;
   background-color: rgb(208, 219, 219);

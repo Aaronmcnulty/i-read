@@ -8,7 +8,7 @@ function BookTemplate({ bookData }) {
   const context = useContext(LibraryContext);
   const [isVisible, setIsVisible] = useState(false);
   const [confirmationText, setConfirmationText] = useState("");
-  const [displayAddButtons, setDisplayAddButtons] = useState(false)
+  const [displayAddButtons, setDisplayAddButtons] = useState(false);
 
   //API is patchy on what fields exist or not. Catches error if cover_i field is missing in bookData
   let coverImageUrl = null;
@@ -25,14 +25,12 @@ function BookTemplate({ bookData }) {
   };
 
   const toggleVisibility = () => {
-    if(displayAddButtons === false){
-      setDisplayAddButtons(true)
+    if (displayAddButtons === false) {
+      setDisplayAddButtons(true);
     } else {
-      setDisplayAddButtons(false)
+      setDisplayAddButtons(false);
     }
-    
-    };
-  
+  };
 
   //When add to list button is clicked, function adds bookData to corresponding array.
   //Will be altered to add to database in future, should be condensed into one function for all three.
@@ -43,7 +41,7 @@ function BookTemplate({ bookData }) {
       toggleDisplay();
     }
   };
-  
+
   const addToRead = () => {
     if (!context.readBooksArray.includes(bookData)) {
       context.readBooksArray.push(bookData);
@@ -71,17 +69,19 @@ function BookTemplate({ bookData }) {
           <h5 className={styles.bookAuthorText}>{bookData.author_name}</h5>
           <p className={styles.bookYearText}>{bookData.first_publish_year}</p>
         </div>
-        <button className={styles.toggleButton} onClick={toggleVisibility}>+</button>
-
+        <button className={styles.toggleButton} onClick={toggleVisibility}>
+          +
+        </button>
       </div>
       {isVisible && <AddedToListPopup popupText={confirmationText} />}
-      {displayAddButtons && 
+      {displayAddButtons && (
         <div className={styles.bookButtonsContainer}>
-        <h4>Add book a list?</h4>
-        <button onClick={addToOwned}>I own this</button>
-        <button onClick={addToWishlist}>I want this</button>
-        <button onClick={addToRead}>I read this</button>
-      </div>}
+          <h4>Add book a list?</h4>
+          <button onClick={addToOwned}>I own this</button>
+          <button onClick={addToWishlist}>I want this</button>
+          <button onClick={addToRead}>I read this</button>
+        </div>
+      )}
     </div>
   );
 }
