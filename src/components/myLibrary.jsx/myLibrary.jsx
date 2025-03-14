@@ -2,6 +2,7 @@ import { useState, useContext, useEffect } from "react";
 import { LibraryContext } from "../../App";
 import BookListDisplay from "../bookDisplay/BookListDisplay";
 import axios from "axios";
+import BookTemplate from "../bookDisplay/BookTemplate";
 
 function MyLibrary() {
   const context = useContext(LibraryContext);
@@ -53,8 +54,7 @@ function MyLibrary() {
         <ul>
           {userList &&
             userList.books.map((item) => {
-              return <li>{item.title}
-              <img src={item.cover_url}></img></li>;
+              return <BookTemplate bookData={item}/>
             })}
         </ul>
         <BookListDisplay BookApiData={lists[option]} />

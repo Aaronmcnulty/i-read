@@ -14,9 +14,11 @@ function BookTemplate({ bookData }) {
   const [listOption, setListOption] = useState('read_books')
 
   //API is patchy on what fields exist or not. Catches error if cover_i field is missing in bookData
-  let coverUrl = null;
-  if (bookData.cover_i) {
-    coverUrl = `https://covers.openlibrary.org/b/id/${bookData.cover_i}-L.jpg`;
+  let coverUrl = null
+   if (bookData.cover_i) {
+   coverUrl = `https://covers.openlibrary.org/b/id/${bookData.cover_i}-L.jpg`;
+  }  else if(bookData.cover_url) {
+   coverUrl = bookData.cover_url
   }
 
   // Toggles display state to true for 3 seconds when called, returns to false on timeout.
@@ -40,11 +42,11 @@ function BookTemplate({ bookData }) {
  }
 
  const handleListSubmit = (e) => {
-  console.log(listOption)
+  console.log(bookData.author_name)
   toggleDisplay()
   toggleVisibility()
   const b = localStorage.getItem("storedToken").replaceAll('"', "");
-      axios.defaults.headers.common["Authorization"] = `bearer ${b}`;
+  axios.defaults.headers.common["Authorization"] = `bearer ${b}`;
       
   axios.post(
     "https://happy-upliftment-production.up.railway.app/books/add-to-list",

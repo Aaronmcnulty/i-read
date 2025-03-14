@@ -31,6 +31,7 @@ function SignUpForm() {
   return (
     <>
       <form onSubmit={submitLogIn} action="" method="POST">
+        <label>Sign Up</label>
         <fieldset>
           <label htmlFor="signup-username">Username: </label>
           <input
