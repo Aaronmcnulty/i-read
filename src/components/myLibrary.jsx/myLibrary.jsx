@@ -2,11 +2,12 @@ import { useState, useContext, useEffect } from "react";
 import { LibraryContext } from "../../App";
 import BookListDisplay from "../bookDisplay/BookListDisplay";
 import axios from "axios";
+
 function MyLibrary() {
+  const context = useContext(LibraryContext);
+
   const [option, setOption] = useState(0);
   const [userList, setUserList] = useState(null);
-  const [userLists, setUserLists] = useState(null);
-  const context = useContext(LibraryContext);
   const lists = [
     context.ownedBooksArray,
     context.readBooksArray,
@@ -17,22 +18,10 @@ function MyLibrary() {
   const changeOption = (event) => {
     setOption(event.target.value);
   };
-  const b = localStorage.getItem("storedToken").replaceAll('"', "");
-  axios.defaults.headers.common["Authorization"] = `bearer ${b}`;
-
-  useEffect(() => {
-    axios
-      .post(
-        "https://happy-upliftment-production.up.railway.app/book-list/get-user-lists",
-        { body: "none" },
-        { method: "cors" },
-        { withCredentials: true },
-      )
-      .then((res) => setUserLists(res.data));
-  }, []);
+  
 
   const handleGetList = () => {
-    console.log(b);
+    
     axios
       .post(
         "https://happy-upliftment-production.up.railway.app/book-list/get-list",
@@ -44,16 +33,16 @@ function MyLibrary() {
   };
 
   useEffect(() => {
-    console.log(userList, userLists);
-  }, [userList, userLists]);
+    console.log(userList, context.userLists);
+  }, [userList, context.userLists]);
 
   return (
     <>
       <h2>My Library</h2>
       <div>
         <select onChange={changeOption}>
-          {userLists &&
-            userLists.map((entry) => {
+          {context.userLists &&
+            context.userLists.map((entry) => {
               let correctedName = entry.name.replace("_", " ");
               return <option value={entry.name}>{correctedName}</option>;
             })}

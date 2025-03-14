@@ -1,11 +1,11 @@
 import axios from "axios";
 import { useState, useContext} from "react";
 import AuthContext from "../../context/AuthProvider";
+import { LibraryContext } from "../../App";
 
 function LogInForm() {
   const { setAuth } = useContext(AuthContext);
-
-  const [success, setSuccess] = useState(false);
+  const context = useContext(LibraryContext);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -32,15 +32,13 @@ function LogInForm() {
         console.log(username);
         localStorage.setItem("storedToken", JSON.stringify(theToken));
         localStorage.setItem("user", JSON.stringify(userDetails));
-        setSuccess(true);
+        context.setSuccess(true);
       })
       .catch((error) => {
         console.error(error);
       });
   };
 
-  console.log(localStorage.getItem("storedToken"));
-  console.log(localStorage.getItem("user"));
 
   const logOut = () => {
     axios
@@ -52,8 +50,7 @@ function LogInForm() {
       .then((res) => {
         localStorage.removeItem("storedToken");
         localStorage.removeItem("user");
-        console.log(res.data);
-        setSuccess(false);
+        context.setSuccess(false);
       })
       .catch((error) => {
         console.error(error);
@@ -62,14 +59,15 @@ function LogInForm() {
 
   return (
     <>
-      {success ? (
+      {context.success ? (
         <section>
           <h1>You are logged in!</h1>
+          <button onClick={logOut}>log Out </button>
+
           <br />
         </section>
       ) : (
         <section>
-          <button onClick={logOut}>log Out </button>
           <form onSubmit={submitLogIn}>
             <fieldset>
               <label htmlFor="username">Username: </label>
