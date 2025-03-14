@@ -1,10 +1,8 @@
 import axios from "axios";
 import { useState, useContext} from "react";
-import AuthContext from "../../context/AuthProvider";
 import { LibraryContext } from "../../App";
 
 function LogInForm() {
-  const { setAuth } = useContext(AuthContext);
   const context = useContext(LibraryContext);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -28,7 +26,6 @@ function LogInForm() {
       .then((res) => {
         const theToken = res.data.token;
         const userDetails = res.data.userDetails;
-        setAuth({ username, password, theToken });
         console.log(username);
         localStorage.setItem("storedToken", JSON.stringify(theToken));
         localStorage.setItem("user", JSON.stringify(userDetails));
