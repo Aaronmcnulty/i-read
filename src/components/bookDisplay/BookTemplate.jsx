@@ -14,9 +14,9 @@ function BookTemplate({ bookData }) {
   const [listOption, setListOption] = useState('read_books')
 
   //API is patchy on what fields exist or not. Catches error if cover_i field is missing in bookData
-  let coverImageUrl = null;
+  let coverUrl = null;
   if (bookData.cover_i) {
-    coverImageUrl = `https://covers.openlibrary.org/b/id/${bookData.cover_i}-L.jpg`;
+    coverUrl = `https://covers.openlibrary.org/b/id/${bookData.cover_i}-L.jpg`;
   }
 
   // Toggles display state to true for 3 seconds when called, returns to false on timeout.
@@ -41,7 +41,25 @@ function BookTemplate({ bookData }) {
 
  const handleListSubmit = (e) => {
   console.log(listOption)
+  toggleDisplay()
   toggleVisibility()
+  const b = localStorage.getItem("storedToken").replaceAll('"', "");
+      axios.defaults.headers.common["Authorization"] = `bearer ${b}`;
+      
+  axios.post(
+    "https://happy-upliftment-production.up.railway.app/books/add-to-list",
+    { list: listOption,
+      title: Booktitle,
+      author: bookData.author_name[0],
+      year: bookData.first_publish_year,
+      description: '',
+      pages: 0,
+      coverUrl: coverUrl,
+     },
+    { method: "cors" },
+    { withCredentials: true },
+  )
+  .then((res) => console.log(res));
  }
 
   const Booktitle = bookData.title;
@@ -50,7 +68,7 @@ function BookTemplate({ bookData }) {
   return (
     <div className={styles.bookContainer}>
       <div className={styles.bookDetailsContainer}>
-        <img className={styles.bookCoverImage} src={coverImageUrl}></img>
+        <img className={styles.bookCoverImage} src={coverUrl}></img>
         <div className={styles.bookTextContainer}>
           <h4 className={styles.bookTitleText}>{capitalise(shortTitle)}</h4>
           <h5 className={styles.bookAuthorText}>{bookData.author_name}</h5>

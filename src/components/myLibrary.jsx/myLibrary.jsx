@@ -53,7 +53,8 @@ function MyLibrary() {
         <ul>
           {userList &&
             userList.books.map((item) => {
-              return <li>{item.title}</li>;
+              return <li>{item.title}
+              <img src={item.cover_url}></img></li>;
             })}
         </ul>
         <BookListDisplay BookApiData={lists[option]} />
