@@ -11,7 +11,7 @@ function BookTemplate({ bookData }) {
   const [isVisible, setIsVisible] = useState(false);
   const [confirmationText, setConfirmationText] = useState("");
   const [displayAddButtons, setDisplayAddButtons] = useState(false);
-  const [listOption, setListOption] = useState('read_books')
+  const [listOption, setListOption] = useState('Read Books')
 
   //API is patchy on what fields exist or not. Catches error if cover_i field is missing in bookData
   let coverUrl = null
@@ -38,6 +38,7 @@ function BookTemplate({ bookData }) {
   };
 
  const handleOptionChange = (e) => {
+  console.log(e.target.value)
     setListOption(e.target.value)
  }
 
@@ -47,10 +48,9 @@ function BookTemplate({ bookData }) {
   toggleVisibility()
   const b = localStorage.getItem("storedToken").replaceAll('"', "");
   axios.defaults.headers.common["Authorization"] = `bearer ${b}`;
-      
   axios.post(
     "https://happy-upliftment-production.up.railway.app/books/add-to-list",
-    { list: listOption,
+    { listId: parseInt(listOption),
       title: Booktitle,
       author: bookData.author_name[0],
       year: bookData.first_publish_year,
@@ -83,12 +83,12 @@ function BookTemplate({ bookData }) {
       {isVisible && <AddedToListPopup popupText={confirmationText} />}
       {displayAddButtons && (
         <div className={styles.bookButtonsContainer}>
-          <h4>Add book a list?</h4>
+          <h4>Add book to a list?</h4>
           
           <form >
             <select onChange={handleOptionChange}>
               {context.userLists && context.userLists.map(entry => {
-                return <option value={entry.name}>{entry.name}</option>
+                return <option value={entry.id}>{entry.id}</option>
               })}
             </select>
             <button onClick={handleListSubmit} type="button">Add</button>

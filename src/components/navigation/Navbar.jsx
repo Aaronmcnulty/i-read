@@ -13,6 +13,9 @@ function Navbar() {
       <Link className={styles.navLink} to="search-page">
         Full Search
       </Link>
+      <Link className={styles.navLink} to="sign-up">
+        Sign Up
+      </Link>
     </nav>
   );
 }

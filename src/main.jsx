@@ -6,6 +6,7 @@ import Homepage from "./components/homepage/Homepage";
 import MyLibrary from "./components/myLibrary.jsx/myLibrary";
 import SearchPage from "./components/search/fullSearch/SearchPage";
 import { AuthProvider } from "./context/AuthProvider";
+import SignUpForm from "./components/SignUpForm";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,7 @@ const router = createBrowserRouter([
       { path: "homepage", element: <Homepage /> },
       { path: "my-library", element: <MyLibrary /> },
       { path: "search-page", element: <SearchPage /> },
+      { path: "sign-up", element: <SignUpForm /> },
     ],
   },
 ]);

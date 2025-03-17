@@ -7,13 +7,9 @@ import BookTemplate from "../bookDisplay/BookTemplate";
 function MyLibrary() {
   const context = useContext(LibraryContext);
 
-  const [option, setOption] = useState(0);
+  const [option, setOption] = useState(context.userLists[0].id);
   const [userList, setUserList] = useState(null);
-  const lists = [
-    context.ownedBooksArray,
-    context.readBooksArray,
-    context.wishListBooksArray,
-  ];
+ 
 
   // BooksDisplay is passed a different array depending on which option is selected.
   const changeOption = (event) => {
@@ -34,7 +30,7 @@ function MyLibrary() {
   };
 
   useEffect(() => {
-    console.log(userList, context.userLists);
+    handleGetList()
   }, [userList, context.userLists]);
 
   return (
@@ -54,10 +50,10 @@ function MyLibrary() {
         <ul>
           {userList &&
             userList.books.map((item) => {
-              return <BookTemplate bookData={item}/>
+              return <BookTemplate key={item.title} bookData={item}/>
             })}
         </ul>
-        <BookListDisplay BookApiData={lists[option]} />
+        <BookListDisplay  />
       </div>
     </>
   );

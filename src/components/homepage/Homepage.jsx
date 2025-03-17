@@ -33,7 +33,6 @@ function Homepage() {
   return (
     <>
       <LogInForm />
-      <SignUpForm />
     </>
   );
 }
