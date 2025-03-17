@@ -38,6 +38,7 @@ function SearchPage() {
   //   }
   // }, [searchTerm, resultsPage]);
 
+  //Fetches search results from API query url and stores returned results data in state.
   const fetchApi = () => {
     fetch(
       `https://openlibrary.org/search.json?title=${searchTerm}&page=${resultsPage}&limit=10`,

@@ -14,8 +14,11 @@ function LogInForm() {
     setPassword(event.target.value);
   };
 
+
+  
   const submitLogIn = (event) => {
     event.preventDefault();
+    //  Posts log in details from log in form to server for authentication.
     axios
       .post(
         "https://happy-upliftment-production.up.railway.app/log-in",
@@ -23,6 +26,10 @@ function LogInForm() {
         { method: "cors" },
         { withCredentials: true },
       )
+      /* If successful, unique token and stored user details from database are returned.
+      This is stored in local storage to be used for server calls to protected routes 
+      elsewhere in the app.
+      */
       .then((res) => {
         const theToken = res.data.token;
         const userDetails = res.data.userDetails;
@@ -31,6 +38,7 @@ function LogInForm() {
         localStorage.setItem("user", JSON.stringify(userDetails));
         context.setSuccess(true);
       })
+      // If unsuccessful, error is logged
       .catch((error) => {
         console.error(error);
       });
@@ -44,6 +52,7 @@ function LogInForm() {
         { method: "cors" },
         { withCredentials: true },
       )
+      // On successful log out user details and unique token are removed from local storage
       .then((res) => {
         localStorage.removeItem("storedToken");
         localStorage.removeItem("user");

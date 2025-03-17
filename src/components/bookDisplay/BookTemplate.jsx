@@ -12,14 +12,24 @@ function BookTemplate({ bookData }) {
   const [confirmationText, setConfirmationText] = useState("");
   const [displayAddButtons, setDisplayAddButtons] = useState(false);
   const [listOption, setListOption] = useState('Read Books')
+  
+
+  // Removes quotation marks from token in localStorage
+  const refinedToken = localStorage.getItem("storedToken").replaceAll('"', "");
+  // Adds the authorization header to all axios submissions with users token.
+  axios.defaults.headers.common["Authorization"] = `bearer ${refinedToken}`;
+
 
   //API is patchy on what fields exist or not. Catches error if cover_i field is missing in bookData
   let coverUrl = null
-   if (bookData.cover_i) {
+  if (bookData.cover_i) {
    coverUrl = `https://covers.openlibrary.org/b/id/${bookData.cover_i}-L.jpg`;
   }  else if(bookData.cover_url) {
    coverUrl = bookData.cover_url
   }
+
+  // Passes book title to BookTextCorrection module, corrects grammar & string length
+  const shortTitle = shorten(bookData.title, 40);
 
   // Toggles display state to true for 3 seconds when called, returns to false on timeout.
   const toggleDisplay = () => {
@@ -29,6 +39,7 @@ function BookTemplate({ bookData }) {
     }, 3000);
   };
 
+  
   const toggleVisibility = () => {
     if (displayAddButtons === false) {
       setDisplayAddButtons(true);
@@ -43,11 +54,11 @@ function BookTemplate({ bookData }) {
  }
 
  const handleListSubmit = (e) => {
-  console.log(bookData.author_name)
   toggleDisplay()
   toggleVisibility()
-  const b = localStorage.getItem("storedToken").replaceAll('"', "");
-  axios.defaults.headers.common["Authorization"] = `bearer ${b}`;
+  
+
+// Posts chosen book data and the list it is to be stored in to the server.
   axios.post(
     "https://happy-upliftment-production.up.railway.app/books/add-to-list",
     { listId: parseInt(listOption),
@@ -63,9 +74,6 @@ function BookTemplate({ bookData }) {
   )
   .then((res) => console.log(res));
  }
-
-  const Booktitle = bookData.title;
-  const shortTitle = shorten(Booktitle, 40);
 
   return (
     <div className={styles.bookContainer}>

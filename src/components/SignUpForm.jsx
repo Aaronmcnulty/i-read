@@ -3,8 +3,9 @@ import axios from "axios";
 function SignUpForm() {
   const [username, setSignupUsername] = useState("");
   const [password, setSignupPassword] = useState("");
+  
+  
   const submitLogIn = (event) => {
-    console.log(username, password);
     event.preventDefault();
     axios
       .post(
@@ -21,12 +22,15 @@ function SignUpForm() {
       });
   };
 
+
   const usernameInputChange = (event) => {
     setSignupUsername(event.target.value);
   };
+  
   const passwordInputChange = (event) => {
     setSignupPassword(event.target.value);
   };
+
 
   return (
     <>

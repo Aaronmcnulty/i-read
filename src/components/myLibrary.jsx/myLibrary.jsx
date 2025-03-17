@@ -16,9 +16,9 @@ function MyLibrary() {
     setOption(event.target.value);
   };
   
-
+/* Posts required book_list id to server for retrieval. If successful, the returned book_list
+data is stored in userList state */ 
   const handleGetList = () => {
-    
     axios
       .post(
         "https://happy-upliftment-production.up.railway.app/book-list/get-list",
@@ -29,9 +29,11 @@ function MyLibrary() {
       .then((res) => setUserList(res.data));
   };
 
+/* When the option value in state is updated (user chooses a new option in drop down menu)
+  handleGetList is called to retrieve chosen list data from server */
   useEffect(() => {
     handleGetList()
-  }, [userList, context.userLists]);
+  }, [option]);
 
   return (
     <>
