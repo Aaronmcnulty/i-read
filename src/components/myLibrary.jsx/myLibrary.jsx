@@ -26,7 +26,7 @@ function MyLibrary() {
     axios
       .post(
         "https://happy-upliftment-production.up.railway.app/book-list/get-list",
-        { name: option },
+        { id: parseInt(option) },
         { method: "cors" },
         { withCredentials: true },
       )
@@ -45,7 +45,7 @@ function MyLibrary() {
           {context.userLists &&
             context.userLists.map((entry) => {
               let correctedName = entry.name.replace("_", " ");
-              return <option value={entry.name}>{correctedName}</option>;
+              return <option value={entry.id}>{correctedName}</option>;
             })}
         </select>
       </div>
